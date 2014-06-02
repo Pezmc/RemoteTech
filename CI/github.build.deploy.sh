@@ -2,13 +2,13 @@
 
 # These should be set by Travis
 #TRAVIS_BUILD_NUMBER=1
-#TRAVIS_BRANCH=master/travis
+#TRAVIS_BRANCH=master
 #TRAVIS_REPO_SLUG="RemoteTechnologiesGroup/RemoteTech"
-#TRAVIS_COMMIT=a sha hash
+#TRAVIS_COMMIT=master
 #GITHUB_TOKEN="Personal access token from https://github.com/settings/applications"
+#TRAVIS_PULL_REQUEST=false
 
-RECENT_TAG=`git describe --abbrev=0 --tags | cut -c2-`
-VERSION="${RECENT_TAG}-build-${TRAVIS_BRANCH}-${TRAVIS_BUILD_NUMBER}"
+VERSION="build-${TRAVIS_BRANCH}-${TRAVIS_BUILD_NUMBER}"
 FILENAME=$(echo "${VERSION}.zip" | tr '/' '_') # else it will fail on branches like chore/travis
 
 python_parse_json() {
@@ -17,15 +17,15 @@ python_parse_json() {
 }
 
 if [ -z "$GITHUB_TOKEN" ] || [ -z "$TRAVIS_REPO_SLUG" ] \
-	|| [ -z "$TRAVIS_BUILD_NUMBER" ] || [ -z "$TRAVIS_BRANCH" ]
+	|| [ -z "$TRAVIS_BUILD_NUMBER" ] || [ -z "$TRAVIS_BRANCH" ] \
 	|| [ -z "$TRAVIS_COMMIT" ]
 then
-	echo "GITHUB_TOKEN, TRAVIS_REPO_SLUG and TRAVIS_BUILD_NUMBER must be set in order to deploy";
+	echo "GITHUB_TOKEN, TRAVIS_REPO_SLUG, TRAVIS_BUILD_NUMBER and TRAVIS_COMMIT must be set in order to deploy";
 	echo "Skipping deploy for now";
 	exit 0; # prevent build failing if unset
 fi
 
-if [ "$TRAVIS_PULL_REQUEST" -ne "false" ]
+if [ "$TRAVIS_PULL_REQUEST" != "false" ]
 then
 	echo "This is a pull request build, it doesn't need to be released."
 	exit 0; # prevent build fail
