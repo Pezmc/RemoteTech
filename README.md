@@ -4,4 +4,3 @@ RemoteTech
 ==========
 
 Community developed continuation of Kerbal Space Program's RemoteTech mod.
-Minor change to test travis pull requests.
