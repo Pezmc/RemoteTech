@@ -6,7 +6,8 @@ os:
 env:
   global:
    - secure: VNy9cMdF07hSpmyOcmsccRcB6PNt/lJm8pQRqbQ+0QaO1DCkVKqRCiEaCsNJFXM4lsCa+m6QsWOx4HTrHpqmMD2dIerev5/xTjVoEIPHx5VK5FvH02lA66vva7/v0XVdOKdZEm9lTFECkSS5wmi8h4wHjeh5c3gJPZJHLVDVCyw=
-   - secure: AAF4EAxVt/VpOQi30/M6qD0n8xey0LMlpn/dXEMzI2yKWd5p+Hub6VSTdnvWR6Rp+7YOAWyR/Dxau53P42o+xYCkYS3O1AUbz+a18XiuiSoU1gwMyaHXP57Ija2xqeoiF9YtikkTczsn3ju/uRTC39Wr7X9iFP8eXdoCiHIzWKc=
+   - secure: Cerk9YIsWi/bMi4oe9FNuGybvN9yM/jchSgLgg5oREjEWeZ173UW2+Y9UnhJyMgcFpwItR4tAQ30PdQkIymt80Ap/lmMxxaiuuHUC8qLsmx63LZu+6xzlKJXPlh9hEau7k+3VY2s/fk2w4tpspkVM7+AROf++LptZ1FLJmKrM8A=
+
 before_install:
  - date -u
  - uname -a
